@@ -152,7 +152,9 @@ export class RegexValidator extends Validator {
 }
 
 export class RequiredValidator extends Validator {
-  isValid(fieldValue) {
+  isValid(fieldValue, row) {
+    console.log(row)
+
     if (!fieldValue) {
       return {
         valid: false,
@@ -238,7 +240,7 @@ export const applyValidation = (formattedData, fields) => {
       const validators = validatorsByFieldKey[field.key]
 
       validators.forEach((v) => {
-        const result = v.isValid(value)
+        const result = v.isValid(value, row)
         if (!result.valid) {
           validationResult.addError(field.key, rowIndex, result)
         }

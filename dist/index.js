@@ -1119,7 +1119,8 @@ var RequiredValidator = /*#__PURE__*/function (_Validator7) {
     return _Validator7.apply(this, arguments) || this;
   }
   var _proto8 = RequiredValidator.prototype;
-  _proto8.isValid = function isValid(fieldValue) {
+  _proto8.isValid = function isValid(fieldValue, row) {
+    console.log(row);
     if (!fieldValue) {
       return {
         valid: false,
@@ -1198,7 +1199,7 @@ var applyValidation = function applyValidation(formattedData, fields) {
       var value = row[field.key];
       var validators = validatorsByFieldKey[field.key];
       validators.forEach(function (v) {
-        var result = v.isValid(value);
+        var result = v.isValid(value, row);
         if (!result.valid) {
           validationResult.addError(field.key, rowIndex, result);
         }
