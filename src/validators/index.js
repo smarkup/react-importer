@@ -82,8 +82,8 @@ export class CustomValidator extends Validator {
     this.validateFn = validateFn
   }
 
-  isValid(fieldValue) {
-    const result = this.validateFn(fieldValue)
+  isValid(fieldValue, row) {
+    const result = this.validateFn(fieldValue, row)
     const valid = !!!result
     return {
       valid: valid,
@@ -153,8 +153,6 @@ export class RegexValidator extends Validator {
 
 export class RequiredValidator extends Validator {
   isValid(fieldValue, row) {
-    console.log(row)
-
     if (!fieldValue) {
       return {
         valid: false,

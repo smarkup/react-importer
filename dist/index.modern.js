@@ -1027,8 +1027,8 @@ var CustomValidator = /*#__PURE__*/function (_Validator3) {
     return _this4;
   }
   var _proto4 = CustomValidator.prototype;
-  _proto4.isValid = function isValid(fieldValue) {
-    var result = this.validateFn(fieldValue);
+  _proto4.isValid = function isValid(fieldValue, row) {
+    var result = this.validateFn(fieldValue, row);
     var valid = !!!result;
     return {
       valid: valid,
@@ -1116,7 +1116,6 @@ var RequiredValidator = /*#__PURE__*/function (_Validator7) {
   }
   var _proto8 = RequiredValidator.prototype;
   _proto8.isValid = function isValid(fieldValue, row) {
-    console.log(row);
     if (!fieldValue) {
       return {
         valid: false,
