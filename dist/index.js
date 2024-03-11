@@ -616,11 +616,7 @@ var filterEmptyRows = function filterEmptyRows(formattedData) {
   });
 };
 var filterInvalidRows = function filterInvalidRows(formattedData, validationResult) {
-  var rowIndexesWithErrors = validationResult.rowIndexesWithErrors();
-  formattedData = formattedData.filter(function (row) {
-    return !rowIndexesWithErrors.has(row.rowIndex);
-  });
-  return filterEmptyRows(formattedData);
+  return formattedData;
 };
 var removeTemporaryKeys = function removeTemporaryKeys(formattedData) {
   formattedData.forEach(function (f) {
@@ -638,7 +634,7 @@ var fieldIsRequired = function fieldIsRequired(field) {
   return false;
 };
 var buildFinalData = function buildFinalData(formattedData, validationResult) {
-  return removeTemporaryKeys(filterInvalidRows(filterEmptyRows(formattedData), validationResult));
+  return removeTemporaryKeys(filterInvalidRows(filterEmptyRows(formattedData)));
 };
 function isObject(item) {
   return item && typeof item === 'object' && !Array.isArray(item);

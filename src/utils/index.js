@@ -64,11 +64,13 @@ export const filterEmptyRows = (formattedData) => {
 }
 
 export const filterInvalidRows = (formattedData, validationResult) => {
-  const rowIndexesWithErrors = validationResult.rowIndexesWithErrors()
-  formattedData = formattedData.filter(
-    (row) => !rowIndexesWithErrors.has(row.rowIndex)
-  )
-  return filterEmptyRows(formattedData)
+  // we want invalid rows to pass!
+  // const rowIndexesWithErrors = validationResult.rowIndexesWithErrors()
+  // formattedData = formattedData.filter(
+  //   (row) => !rowIndexesWithErrors.has(row.rowIndex)
+  // )
+  // return filterEmptyRows(formattedData)
+  return formattedData
 }
 
 export const removeTemporaryKeys = (formattedData) => {
