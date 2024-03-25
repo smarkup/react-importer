@@ -10,7 +10,6 @@ var Select = _interopDefault(require('react-select'));
 var agGridReact = require('ag-grid-react');
 require('ag-grid-community/dist/styles/ag-grid.css');
 require('ag-grid-community/dist/styles/ag-theme-alpine.css');
-var reactCircularProgressbar = require('react-circular-progressbar');
 require('react-circular-progressbar/dist/styles.css');
 
 function _extends() {
@@ -840,36 +839,15 @@ var Failed = function Failed() {
   }, "Something went wrong")));
 };
 var Uploading = function Uploading(_ref) {
-  var progress = _ref.progress,
-    pending = _ref.pending;
+  var pending = _ref.pending;
   var theme = styled.useTheme();
-  var _hexToRgb = hexToRgb(theme.colors.success),
-    r = _hexToRgb.r,
-    g = _hexToRgb.g,
-    b = _hexToRgb.b;
+  var _hexToRgb = hexToRgb(theme.colors.success);
   return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Margin, {
     margin: "60px",
     style: {
       textAlign: 'center'
     }
-  }, /*#__PURE__*/React__default.createElement("div", {
-    style: {
-      width: "100px",
-      height: "100px",
-      margin: "0 auto",
-      position: "relative"
-    }
-  }, /*#__PURE__*/React__default.createElement(reactCircularProgressbar.CircularProgressbarWithChildren, {
-    value: progress,
-    strokeWidth: 5,
-    styles: reactCircularProgressbar.buildStyles({
-      pathColor: "rgba(" + r + ", " + g + ", " + b + ", " + progress / 100 + ")"
-    })
-  }, !pending && /*#__PURE__*/React__default.createElement(SuccessIcon, null), pending && /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("b", {
-    style: {
-      fontSize: '1.2em'
-    }
-  }, progress, "%")))), pending && /*#__PURE__*/React__default.createElement("h2", {
+  }, pending && /*#__PURE__*/React__default.createElement("h2", {
     style: {
       fontSize: "2em"
     }
@@ -878,27 +856,6 @@ var Uploading = function Uploading(_ref) {
       fontSize: "2em"
     }
   }, "Success")));
-};
-var SuccessIcon = function SuccessIcon() {
-  var theme = styled.useTheme();
-  return /*#__PURE__*/React__default.createElement("svg", {
-    style: {
-      position: "absolute",
-      margin: "auto",
-      top: "0",
-      bottom: "0",
-      left: "0",
-      right: "0"
-    },
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "64",
-    height: "64",
-    fill: theme.colors.success,
-    "class": "bi bi-check-lg",
-    viewBox: "0 0 16 16"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    d: "M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"
-  }));
 };
 var Completed = function Completed(_ref2) {
   var formattedData = _ref2.formattedData,
@@ -1386,16 +1343,6 @@ var PostalCodeTransformer = /*#__PURE__*/function (_Transformer5) {
   return PostalCodeTransformer;
 }(Transformer);
 
-var delay = function delay(ms) {
-  try {
-    return Promise.resolve(new Promise(function (resolve) {
-      setTimeout(resolve, ms);
-    })).then(function () {});
-  } catch (e) {
-    return Promise.reject(e);
-  }
-};
-
 var THEME_DEFAULT = {
   colors: {
     primary: "#2980b9",
@@ -1610,18 +1557,9 @@ var Importer = function Importer(_ref) {
   var submitWrapper = function submitWrapper() {
     try {
       var _temp3 = function _temp3(_result) {
-        return _exit2 ? _result : Promise.resolve(delay(400)).then(function () {
-          dispatch({
-            type: 'PROGRESS',
-            payload: {
-              progress: 100
-            }
-          });
-          return Promise.resolve(delay(200)).then(function () {
-            dispatch({
-              type: 'COMPLETE'
-            });
-          });
+        if (_exit2) return _result;
+        dispatch({
+          type: 'COMPLETE'
         });
       };
       var _exit2 = false;

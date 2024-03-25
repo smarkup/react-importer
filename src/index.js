@@ -213,9 +213,9 @@ const Importer = ({ theme, onComplete, fields }) => {
       dispatch({ type: 'FAILED' })
       return
     }
-    await delay(400)
-    dispatch({ type: 'PROGRESS', payload: { progress: 100 } })
-    await delay(200)
+    // await delay(400)
+    // dispatch({ type: 'PROGRESS', payload: { progress: 100 } })
+    // await delay(200)
     dispatch({ type: 'COMPLETE' })
   }
 
