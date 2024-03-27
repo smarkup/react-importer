@@ -172,9 +172,7 @@ export const Root = styled.div`
 `
 
 export const Card = styled.div`
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 10px;
-  border-radius: 5px;
+  display: flex;
 `
 
 export const Align = styled.div`

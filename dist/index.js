@@ -121,7 +121,7 @@ var TextStyled = styled__default.div(_templateObject2$1 || (_templateObject2$1 =
   return styles;
 });
 var Root = styled__default.div(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  animation : none;\n  animation-delay : 0;\n  animation-direction : normal;\n  animation-duration : 0;\n  animation-fill-mode : none;\n  animation-iteration-count : 1;\n  animation-name : none;\n  animation-play-state : running;\n  animation-timing-function : ease;\n  backface-visibility : visible;\n  background : 0;\n  background-attachment : scroll;\n  background-clip : border-box;\n  background-color : transparent;\n  background-image : none;\n  background-origin : padding-box;\n  background-position : 0 0;\n  background-position-x : 0;\n  background-position-y : 0;\n  background-repeat : repeat;\n  background-size : auto auto;\n  border : 0;\n  border-style : none;\n  border-width : medium;\n  border-color : inherit;\n  border-bottom : 0;\n  border-bottom-color : inherit;\n  border-bottom-left-radius : 0;\n  border-bottom-right-radius : 0;\n  border-bottom-style : none;\n  border-bottom-width : medium;\n  border-collapse : separate;\n  border-image : none;\n  border-left : 0;\n  border-left-color : inherit;\n  border-left-style : none;\n  border-left-width : medium;\n  border-radius : 0;\n  border-right : 0;\n  border-right-color : inherit;\n  border-right-style : none;\n  border-right-width : medium;\n  border-spacing : 0;\n  border-top : 0;\n  border-top-color : inherit;\n  border-top-left-radius : 0;\n  border-top-right-radius : 0;\n  border-top-style : none;\n  border-top-width : medium;\n  bottom : auto;\n  box-shadow : none;\n  box-sizing : content-box;\n  caption-side : top;\n  clear : none;\n  clip : auto;\n  color : inherit;\n  columns : auto;\n  column-count : auto;\n  column-fill : balance;\n  column-gap : normal;\n  column-rule : medium none currentColor;\n  column-rule-color : currentColor;\n  column-rule-style : none;\n  column-rule-width : none;\n  column-span : 1;\n  column-width : auto;\n  content : normal;\n  counter-increment : none;\n  counter-reset : none;\n  cursor : auto;\n  direction : ltr;\n  display : inline;\n  empty-cells : show;\n  float : none;\n  font : normal;\n  font-family : inherit;\n  font-size : 16px !important;\n  font-style : normal;\n  font-variant : normal;\n  font-weight : normal;\n  height : auto;\n  hyphens : none;\n  left : auto;\n  letter-spacing : normal;\n  line-height : normal;\n  list-style : none;\n  list-style-image : none;\n  list-style-position : outside;\n  list-style-type : disc;\n  margin : 0;\n  margin-bottom : 0;\n  margin-left : 0;\n  margin-right : 0;\n  margin-top : 0;\n  max-height : none;\n  max-width : none;\n  min-height : 0;\n  min-width : 0;\n  opacity : 1;\n  orphans : 0;\n  outline : 0;\n  outline-color : invert;\n  outline-style : none;\n  outline-width : medium;\n  overflow : visible;\n  overflow-x : visible;\n  overflow-y : visible;\n  padding : 0;\n  padding-bottom : 0;\n  padding-left : 0;\n  padding-right : 0;\n  padding-top : 0;\n  page-break-after : auto;\n  page-break-before : auto;\n  page-break-inside : auto;\n  perspective : none;\n  perspective-origin : 50% 50%;\n  position : static;\n  right : auto;\n  tab-size : 8;\n  table-layout : auto;\n  text-align : inherit;\n  text-align-last : auto;\n  text-decoration : none;\n  text-decoration-color : inherit;\n  text-decoration-line : none;\n  text-decoration-style : solid;\n  text-indent : 0;\n  text-shadow : none;\n  text-transform : none;\n  top : auto;\n  transform : none;\n  transform-style : flat;\n  transition : none;\n  transition-delay : 0s;\n  transition-duration : 0s;\n  transition-property : none;\n  transition-timing-function : ease;\n  unicode-bidi : normal;\n  vertical-align : baseline;\n  visibility : visible;\n  white-space : normal;\n  widows : 0;\n  width : auto;\n  word-spacing : normal;\n  z-index : auto;\n  all: initial;\n  all: unset;\n"])));
-var Card = styled__default.div(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n  padding: 10px;\n  border-radius: 5px;\n"])));
+var Card = styled__default.div(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  display: flex;\n"])));
 var Align = styled__default.div(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n", "\n"])), function (props) {
   if (props.right) {
     return styled.css(_templateObject6 || (_templateObject6 = _taggedTemplateLiteralLoose(["text-align: right"])));
@@ -201,13 +201,11 @@ var FileUploader = function FileUploader(_ref) {
       setFile(acceptedFiles[0]);
     }
   }, [acceptedFiles]);
-  var backgroundColor = isDragAccept ? "rgb(236, 240, 241)" : "rgb(250, 250, 250)";
   return /*#__PURE__*/React__default.createElement(Card, _extends({}, getRootProps(), {
     style: {
-      cursor: 'pointer',
-      backgroundColor: backgroundColor
+      cursor: 'pointer'
     },
-    className: "file-uploader"
+    className: "file-uploader " + (isDragAccept ? 'drag' : '')
   }), /*#__PURE__*/React__default.createElement("input", getInputProps()), /*#__PURE__*/React__default.createElement(Row, null, /*#__PURE__*/React__default.createElement(Col, {
     flex: "1"
   }, /*#__PURE__*/React__default.createElement("svg", {
@@ -221,7 +219,7 @@ var FileUploader = function FileUploader(_ref) {
     d: "M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"
   }), /*#__PURE__*/React__default.createElement("path", {
     d: "M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"
-  })), /*#__PURE__*/React__default.createElement("p", null, "Drag and drop your CSV file here"), /*#__PURE__*/React__default.createElement("p", null, "Limit 20MB"), /*#__PURE__*/React__default.createElement(Button, {
+  })), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", null, "Drag and drop your CSV file here"), /*#__PURE__*/React__default.createElement("p", null, "Limit 20MB")), /*#__PURE__*/React__default.createElement(Button, {
     variant: "secondary",
     outline: true
   }, "Browse files"))));
@@ -1494,12 +1492,6 @@ var Importer = function Importer(_ref) {
       }
     });
   };
-  var rowData = [];
-  for (var i = 0; i < 100; i++) {
-    rowData.push({
-      rowIndex: i
-    });
-  }
   var usedFilters = Object.keys(headerMappings).map(function (h) {
     return headerMappings[h];
   }).filter(function (h) {
@@ -1590,24 +1582,6 @@ var Importer = function Importer(_ref) {
     }
   }), currentStep === 0 && /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(FileUploader, {
     setFile: setFile
-  }), /*#__PURE__*/React__default.createElement(Margin, {
-    margin: "40px 0 10px 0"
-  }, /*#__PURE__*/React__default.createElement("h6", null, "Or just manually enter your data")), /*#__PURE__*/React__default.createElement(DataEditor, {
-    statistics: statistics,
-    formattedData: formattedData.length > 0 ? formattedData : rowData,
-    fields: fields,
-    headerMappings: headerMappings,
-    validationResult: validationResult,
-    onSubmit: submitWrapper,
-    setRowData: function setRowData(row, index) {
-      dispatch({
-        type: 'CELL_CHANGED',
-        payload: {
-          index: index,
-          row: row
-        }
-      });
-    }
   })), currentStep === 1 && /*#__PURE__*/React__default.createElement(HeaderMapper, {
     statistics: statistics,
     parsed: parsed,

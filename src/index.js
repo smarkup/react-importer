@@ -241,25 +241,6 @@ const Importer = ({ theme, onComplete, fields }) => {
           {currentStep === 0 && (
             <div>
               <FileUploader setFile={setFile} />
-              <Margin margin='40px 0 10px 0'>
-                <h6>Or just manually enter your data</h6>
-              </Margin>
-              <DataEditor
-                statistics={statistics}
-                formattedData={
-                  formattedData.length > 0 ? formattedData : rowData
-                }
-                fields={fields}
-                headerMappings={headerMappings}
-                validationResult={validationResult}
-                onSubmit={submitWrapper}
-                setRowData={(row, index) => {
-                  dispatch({
-                    type: 'CELL_CHANGED',
-                    payload: { index: index, row: row }
-                  })
-                }}
-              />
             </div>
           )}
           {currentStep === 1 && (
