@@ -103,8 +103,8 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
     );
   } else {
     block = (
-      <Row className="header-mapper__row">
-        <Col>
+      <div>
+        <Row className="header-mapper__row">
           <HeaderMapperSelection
             options={options}
             header={header}
@@ -119,19 +119,21 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
               })
             }}
           />
-        </Col>
-        <Col>
-          {headerMapping.selectedField && (
-            <MappingStatistics selectedField={headerMapping.selectedField} fieldStatistics={fieldStatistics} />
-          )}
-          {
-            headerMapping.selectedField &&
-            <Button variant="success" onClick={() => {
-              setHeaderMapping({ ...headerMapping, confirmed: true });
-            }}>Confirm mapping</Button>
-          }
-        </Col>
-      </Row>
+        </Row>
+        <Row className="header-mapper__body">
+          <Col>
+            {headerMapping.selectedField && (
+              <MappingStatistics selectedField={headerMapping.selectedField} fieldStatistics={fieldStatistics} />
+            )}
+            {
+              headerMapping.selectedField &&
+              <Button variant="success" onClick={() => {
+                setHeaderMapping({ ...headerMapping, confirmed: true });
+              }}>Confirm mapping</Button>
+            }
+          </Col>
+        </Row>
+      </div>
     );
   }
   return <Card>{block}</Card>;

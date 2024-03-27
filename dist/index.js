@@ -324,9 +324,9 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
       }
     }, "Edit"));
   } else {
-    block = /*#__PURE__*/React__default.createElement(Row, {
+    block = /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Row, {
       className: "header-mapper__row"
-    }, /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(HeaderMapperSelection, {
+    }, /*#__PURE__*/React__default.createElement(HeaderMapperSelection, {
       options: options,
       header: header,
       examples: examples,
@@ -338,7 +338,9 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
           name: header
         }));
       }
-    })), /*#__PURE__*/React__default.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React__default.createElement(MappingStatistics, {
+    })), /*#__PURE__*/React__default.createElement(Row, {
+      className: "header-mapper__body"
+    }, /*#__PURE__*/React__default.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React__default.createElement(MappingStatistics, {
       selectedField: headerMapping.selectedField,
       fieldStatistics: fieldStatistics
     }), headerMapping.selectedField && /*#__PURE__*/React__default.createElement(Button, {
@@ -348,7 +350,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
           confirmed: true
         }));
       }
-    }, "Confirm mapping")));
+    }, "Confirm mapping"))));
   }
   return /*#__PURE__*/React__default.createElement(Card, null, block);
 };
