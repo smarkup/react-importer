@@ -75,14 +75,14 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
           <span>
             Matched to <strong>{headerMapping.selectedField.label}</strong>
           </span>
-        </div>
 
-        <Button onClick={() => {
-          setHeaderMapping({
-            ...headerMapping,
-            confirmed: false,
-          })
-        }}>Edit</Button>
+          <Button onClick={() => {
+            setHeaderMapping({
+              ...headerMapping,
+              confirmed: false,
+            })
+          }}>Edit</Button>
+        </div>
       </Row>
     );
   } else {
