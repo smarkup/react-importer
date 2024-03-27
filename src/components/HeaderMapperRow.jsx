@@ -46,33 +46,15 @@ const MappingStatistics = ({ fieldStatistics, selectedField, }) => {
     </div>
   );
 }
-const HeaderMapperSelection = ({header, examples, setHeader, selectedHeader, options}) => {
+const HeaderMapperSelection = ({header, setHeader, selectedHeader, options}) => {
   return (
     <div className="header">
-      <Row>
-        <p>{header.slice(0, 30)}</p>
+      <p>{header.slice(0, 30)}</p>
 
-        <div>
-          <span>Match to</span>
-          <Select isClearable={true} isSearchable={true} value={selectedHeader} options={options} onChange={setHeader} />
-        </div>
-      </Row>
-      <Table>
-        <tbody>
-          {examples.map((e, idx) => {
-            return (
-              <tr key={idx}>
-                <td style={{ backgroundColor: '#ecf0f1', textAlign: 'center', width: "40px" }}>
-                  {idx}
-                </td>
-                <td style={{ padding: '10px 20px' }}>
-                  {e || <i>No Data</i>}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+      <div>
+        <span>Match to</span>
+        <Select isClearable={true} isSearchable={true} value={selectedHeader} options={options} onChange={setHeader} />
+      </div>
     </div>
   );
 }
@@ -108,7 +90,6 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
           <HeaderMapperSelection
             options={options}
             header={header}
-            examples={examples}
             selectedHeader={headerMapping.selectedField}
             setHeader={(selectedField) => {
               setHeaderMapping({
@@ -121,6 +102,24 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
           />
         </Row>
         <Row className="header-mapper__body">
+          <Col>
+            <Table>
+              <tbody>
+              {examples.map((e, idx) => {
+                return (
+                  <tr key={idx}>
+                    <td style={{ backgroundColor: '#ecf0f1', textAlign: 'center', width: "40px" }}>
+                      {idx}
+                    </td>
+                    <td style={{ padding: '10px 20px' }}>
+                      {e || <i>No Data</i>}
+                    </td>
+                  </tr>
+                );
+              })}
+              </tbody>
+            </Table>
+          </Col>
           <Col>
             {headerMapping.selectedField && (
               <MappingStatistics selectedField={headerMapping.selectedField} fieldStatistics={fieldStatistics} />

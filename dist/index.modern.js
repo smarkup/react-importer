@@ -265,33 +265,18 @@ var MappingStatistics = function MappingStatistics(_ref) {
 };
 var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
   var header = _ref2.header,
-    examples = _ref2.examples,
     setHeader = _ref2.setHeader,
     selectedHeader = _ref2.selectedHeader,
     options = _ref2.options;
   return /*#__PURE__*/React.createElement("div", {
     className: "header"
-  }, /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement(Select, {
+  }, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement(Select, {
     isClearable: true,
     isSearchable: true,
     value: selectedHeader,
     options: options,
     onChange: setHeader
-  }))), /*#__PURE__*/React.createElement(Table, null, /*#__PURE__*/React.createElement("tbody", null, examples.map(function (e, idx) {
-    return /*#__PURE__*/React.createElement("tr", {
-      key: idx
-    }, /*#__PURE__*/React.createElement("td", {
-      style: {
-        backgroundColor: '#ecf0f1',
-        textAlign: 'center',
-        width: "40px"
-      }
-    }, idx), /*#__PURE__*/React.createElement("td", {
-      style: {
-        padding: '10px 20px'
-      }
-    }, e || /*#__PURE__*/React.createElement("i", null, "No Data")));
-  }))));
+  })));
 };
 var HeaderMapperRow = function HeaderMapperRow(_ref3) {
   var options = _ref3.options,
@@ -325,7 +310,6 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     }, /*#__PURE__*/React.createElement(HeaderMapperSelection, {
       options: options,
       header: header,
-      examples: examples,
       selectedHeader: headerMapping.selectedField,
       setHeader: function setHeader(selectedField) {
         setHeaderMapping(_extends({}, headerMapping, {
@@ -336,7 +320,21 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
       }
     })), /*#__PURE__*/React.createElement(Row, {
       className: "header-mapper__body"
-    }, /*#__PURE__*/React.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React.createElement(MappingStatistics, {
+    }, /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(Table, null, /*#__PURE__*/React.createElement("tbody", null, examples.map(function (e, idx) {
+      return /*#__PURE__*/React.createElement("tr", {
+        key: idx
+      }, /*#__PURE__*/React.createElement("td", {
+        style: {
+          backgroundColor: '#ecf0f1',
+          textAlign: 'center',
+          width: "40px"
+        }
+      }, idx), /*#__PURE__*/React.createElement("td", {
+        style: {
+          padding: '10px 20px'
+        }
+      }, e || /*#__PURE__*/React.createElement("i", null, "No Data")));
+    })))), /*#__PURE__*/React.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React.createElement(MappingStatistics, {
       selectedField: headerMapping.selectedField,
       fieldStatistics: fieldStatistics
     }), headerMapping.selectedField && /*#__PURE__*/React.createElement(Button, {
