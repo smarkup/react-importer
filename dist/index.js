@@ -274,13 +274,18 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
     options = _ref2.options;
   return /*#__PURE__*/React__default.createElement("div", {
     className: "header"
-  }, /*#__PURE__*/React__default.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("span", null, "Match to"), /*#__PURE__*/React__default.createElement(Select, {
+  }, /*#__PURE__*/React__default.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("span", null, "Match to"), /*#__PURE__*/React__default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }, /*#__PURE__*/React__default.createElement(Select, {
     isClearable: true,
     isSearchable: true,
     value: selectedHeader,
     options: options,
     onChange: setHeader
-  })));
+  }))));
 };
 var HeaderMapperRow = function HeaderMapperRow(_ref3) {
   var options = _ref3.options,

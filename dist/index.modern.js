@@ -270,13 +270,18 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
     options = _ref2.options;
   return /*#__PURE__*/React.createElement("div", {
     className: "header"
-  }, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement(Select, {
+  }, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }, /*#__PURE__*/React.createElement(Select, {
     isClearable: true,
     isSearchable: true,
     value: selectedHeader,
     options: options,
     onChange: setHeader
-  })));
+  }))));
 };
 var HeaderMapperRow = function HeaderMapperRow(_ref3) {
   var options = _ref3.options,

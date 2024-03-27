@@ -53,7 +53,9 @@ const HeaderMapperSelection = ({header, setHeader, selectedHeader, options}) => 
 
       <div>
         <span>Match to</span>
-        <Select isClearable={true} isSearchable={true} value={selectedHeader} options={options} onChange={setHeader} />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Select isClearable={true} isSearchable={true} value={selectedHeader} options={options} onChange={setHeader} />
+        </div>
       </div>
     </div>
   );
