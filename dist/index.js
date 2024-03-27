@@ -306,7 +306,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
       viewBox: "0 0 16 16"
     }, /*#__PURE__*/React__default.createElement("path", {
       d: "M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"
-    })), /*#__PURE__*/React__default.createElement("span", null, "Matched to ", /*#__PURE__*/React__default.createElement("strong", null, headerMapping.selectedField))), /*#__PURE__*/React__default.createElement(Button, {
+    })), /*#__PURE__*/React__default.createElement("span", null, "Matched to ", /*#__PURE__*/React__default.createElement("strong", null, headerMapping.selectedField.label))), /*#__PURE__*/React__default.createElement(Button, {
       onClick: function onClick() {
         setHeaderMapping(_extends({}, headerMapping, {
           confirmed: false
