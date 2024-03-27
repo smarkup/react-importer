@@ -274,7 +274,7 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
     options = _ref2.options;
   return /*#__PURE__*/React__default.createElement("div", {
     className: "header"
-  }, /*#__PURE__*/React__default.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("span", null, "Match to"), /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("p", null, /*#__PURE__*/React__default.createElement("span", null, header.slice(0, 30))), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("span", null, "Match to"), /*#__PURE__*/React__default.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column'
@@ -298,7 +298,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
   if (headerMapping.confirmed) {
     block = /*#__PURE__*/React__default.createElement(Row, {
       className: "header-mapper__row confirmed"
-    }, /*#__PURE__*/React__default.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("svg", {
+    }, /*#__PURE__*/React__default.createElement("p", null, /*#__PURE__*/React__default.createElement("span", null, header.slice(0, 30))), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "16",
       height: "16",
@@ -405,7 +405,8 @@ var HeaderMapper = function HeaderMapper(_ref) {
   }), /*#__PURE__*/React__default.createElement(Margin, {
     margin: "20px 0"
   }, /*#__PURE__*/React__default.createElement(Align, {
-    right: true
+    right: true,
+    className: "missing"
   }, hasMissingRequiredFields && missingRequiredFields.map(function (f) {
     return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(TextStyled, {
       style: {
@@ -426,7 +427,9 @@ var HeaderMapper = function HeaderMapper(_ref) {
     }, /*#__PURE__*/React__default.createElement("path", {
       d: "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
     }))));
-  })), /*#__PURE__*/React__default.createElement(Row, null, /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(Button, {
+  })), /*#__PURE__*/React__default.createElement(Row, {
+    className: "buttons"
+  }, /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(Button, {
     onClick: restart,
     outline: true
   }, "Back")), /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(Align, {

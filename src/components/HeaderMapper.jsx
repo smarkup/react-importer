@@ -44,7 +44,7 @@ const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMap
         })
       }
       <Margin margin="20px 0">
-        <Align right>
+        <Align right className="missing">
           {hasMissingRequiredFields && (
             missingRequiredFields.map(f => {
               return (
@@ -60,7 +60,7 @@ const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMap
             })
           )}
         </Align>
-        <Row>
+        <Row className="buttons">
           <Col>
             <Button onClick={restart} outline>
               Back

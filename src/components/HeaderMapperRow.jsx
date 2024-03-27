@@ -49,7 +49,7 @@ const MappingStatistics = ({ fieldStatistics, selectedField, }) => {
 const HeaderMapperSelection = ({header, setHeader, selectedHeader, options}) => {
   return (
     <div className="header">
-      <p>{header.slice(0, 30)}</p>
+      <p><span>{header.slice(0, 30)}</span></p>
 
       <div>
         <span>Match to</span>
@@ -66,7 +66,7 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
   if (headerMapping.confirmed) {
     block = (
       <Row className="header-mapper__row confirmed">
-        <p>{header.slice(0, 30)}</p>
+        <p><span>{header.slice(0, 30)}</span></p>
 
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="bi bi-check-lg" viewBox="0 0 16 16">
