@@ -14,10 +14,10 @@ const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMap
   const hasMissingRequiredFields = missingRequiredFields.length > 0;
 
   return (
-    <div>
-      <div>
-        <h5>{parsed.data.length - 1} Rows Imported</h5>
-      </div>
+    <div className="header-mapper">
+      <p>
+        Match the columns from the CSV file to the corresponding fields. If any fields are missing, you can create them in the Fields section.
+      </p>
       {
         data[0].map((header, columnIndex) => {
           const examples = data.slice(1, 4).map(d => d[columnIndex]);

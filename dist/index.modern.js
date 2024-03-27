@@ -226,52 +226,42 @@ var percentage = function percentage(a, b) {
 };
 var MappingStatistics = function MappingStatistics(_ref) {
   var _fieldStatistics$stat, _fieldStatistics$stat2;
-  var fieldStatistics = _ref.fieldStatistics,
-    selectedField = _ref.selectedField;
+  var fieldStatistics = _ref.fieldStatistics;
   var total = fieldStatistics.total;
   var counts = (_fieldStatistics$stat = fieldStatistics.statistics) === null || _fieldStatistics$stat === void 0 ? void 0 : _fieldStatistics$stat.counts;
   var errorTypeCounts = (_fieldStatistics$stat2 = fieldStatistics.statistics) === null || _fieldStatistics$stat2 === void 0 ? void 0 : _fieldStatistics$stat2.errorTypeCounts;
   if (!counts || !errorTypeCounts) {
-    return /*#__PURE__*/React.createElement("div", null);
+    return /*#__PURE__*/React.createElement("div", {
+      className: "statistics statistics--empty"
+    });
   }
-  var theme = useTheme();
-  return /*#__PURE__*/React.createElement("div", null, selectedField && /*#__PURE__*/React.createElement("div", null, "Matched to ", /*#__PURE__*/React.createElement("b", null, selectedField.label)), !selectedField && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "No match detected")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-    style: {
-      marginRight: "10px"
-    },
+  return /*#__PURE__*/React.createElement("div", {
+    className: "statistics"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "16",
     height: "16",
-    fill: theme.colors.warning,
-    className: "bi bi-info-circle-fill",
+    className: "bi bi-info-circle-fill info",
     viewBox: "0 0 16 16"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
-  })), /*#__PURE__*/React.createElement("b", null, percentage(total - counts.isNull, total), "%"), " of your rows have a value for this column"), errorTypeCounts.total === 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-    style: {
-      marginRight: "10px"
-    },
+  })), /*#__PURE__*/React.createElement("span", null, percentage(total - counts.isNull, total), "% of your rows have a value for this column")), errorTypeCounts.total === 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "16",
     height: "16",
-    fill: theme.colors.success,
-    className: "bi bi-check-lg",
+    className: "bi bi-check-lg success",
     viewBox: "0 0 16 16"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"
   })), "All rows pass validation for this column."), errorTypeCounts.total > 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-    style: {
-      marginRight: "10px"
-    },
     xmlns: "http://www.w3.org/2000/svg",
     width: "16",
     height: "16",
-    fill: theme.colors.danger,
-    className: "bi bi-exclamation-diamond-fill",
+    className: "bi bi-exclamation-diamond-fill error",
     viewBox: "0 0 16 16"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-  })), errorTypeCounts.total / total < 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, errorTypeCounts.total), " rows fail validation (repair on next step)"), errorTypeCounts.total / total >= 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, percentage(errorTypeCounts.total, total), "%"), " of rows fail validation (repair on next step)")));
+  })), errorTypeCounts.total / total < 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, errorTypeCounts.total), " rows fail validation. You can repair it on next step."), errorTypeCounts.total / total >= 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, percentage(errorTypeCounts.total, total), "%"), " of rows fail validation. You can repair it on next step.")));
 };
 var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
   var header = _ref2.header,
@@ -279,32 +269,15 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
     setHeader = _ref2.setHeader,
     selectedHeader = _ref2.selectedHeader,
     options = _ref2.options;
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Margin, {
-    margin: "20px 0"
-  }, /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement(Col, {
-    verticallyCenter: true,
-    spaceBetween: true
-  }, /*#__PURE__*/React.createElement(Margin, {
-    margin: "0 10px"
-  }, header.slice(0, 30)), /*#__PURE__*/React.createElement(Padded, {
-    padding: "0 20px"
-  }, /*#__PURE__*/React.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    fill: "currentColor",
-    className: "bi bi-arrow-right",
-    viewBox: "0 0 16 16"
-  }, /*#__PURE__*/React.createElement("path", {
-    fillRule: "evenodd",
-    d: "M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-  })))), /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(Select, {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement(Select, {
     isClearable: true,
     isSearchable: true,
     value: selectedHeader,
     options: options,
     onChange: setHeader
-  })))), /*#__PURE__*/React.createElement(Table, null, /*#__PURE__*/React.createElement("tbody", null, examples.map(function (e, idx) {
+  }))), /*#__PURE__*/React.createElement(Table, null, /*#__PURE__*/React.createElement("tbody", null, examples.map(function (e, idx) {
     return /*#__PURE__*/React.createElement("tr", {
       key: idx
     }, /*#__PURE__*/React.createElement("td", {
@@ -328,83 +301,28 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     setHeaderMapping = _ref3.setHeaderMapping,
     fieldStatistics = _ref3.fieldStatistics;
   var block = null;
-  var theme = useTheme();
   if (headerMapping.confirmed) {
-    block = /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement(Col, {
-      verticallyCenter: true,
-      spaceBetween: true
-    }, /*#__PURE__*/React.createElement(Margin, {
-      margin: "0 10px"
-    }, header.slice(0, 30)), /*#__PURE__*/React.createElement(Padded, {
-      padding: "0 20px"
-    }, /*#__PURE__*/React.createElement("svg", {
+    block = /*#__PURE__*/React.createElement(Row, {
+      className: "header-mapper__row confirmed"
+    }, /*#__PURE__*/React.createElement("p", null, header.slice(0, 30)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "16",
       height: "16",
-      fill: "currentColor",
-      className: "bi bi-arrow-right",
-      viewBox: "0 0 16 16"
-    }, /*#__PURE__*/React.createElement("path", {
-      fillRule: "evenodd",
-      d: "M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-    })))), /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(Select, {
-      isDisabled: true,
-      value: headerMapping.selectedField
-    })))), /*#__PURE__*/React.createElement(Col, {
-      spaceBetween: true,
-      verticallyCenter: true
-    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-      style: {
-        margin: "-2px 10px"
-      },
-      xmlns: "http://www.w3.org/2000/svg",
-      width: "16",
-      height: "16",
-      fill: theme.colors.success,
       className: "bi bi-check-lg",
       viewBox: "0 0 16 16"
     }, /*#__PURE__*/React.createElement("path", {
       d: "M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"
-    })), "Confirmed"), /*#__PURE__*/React.createElement(Button, {
+    })), /*#__PURE__*/React.createElement("span", null, "Matched to ", /*#__PURE__*/React.createElement("strong", null, headerMapping.selectedField))), /*#__PURE__*/React.createElement(Button, {
       onClick: function onClick() {
         setHeaderMapping(_extends({}, headerMapping, {
           confirmed: false
         }));
       }
-    }, "Edit")));
-  } else if (headerMapping.ignored) {
-    block = /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement(Col, {
-      verticallyCenter: true
-    }, /*#__PURE__*/React.createElement(Margin, {
-      margin: "0 10px"
-    }, header)), /*#__PURE__*/React.createElement(Col, {
-      spaceBetween: true,
-      verticallyCenter: true
-    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-      style: {
-        margin: "-2px 10px"
-      },
-      xmlns: "http://www.w3.org/2000/svg",
-      width: "16",
-      height: "16",
-      fill: "currentColor",
-      className: "bi bi-eye-slash-fill",
-      viewBox: "0 0 16 16"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"
-    })), "Ignored"), /*#__PURE__*/React.createElement(Button, {
-      onClick: function onClick() {
-        setHeaderMapping(_extends({}, headerMapping, {
-          selectedField: null,
-          ignored: false,
-          name: null
-        }));
-      }
-    }, "Edit")));
+    }, "Edit"));
   } else {
-    block = /*#__PURE__*/React.createElement(Row, null, /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(HeaderMapperSelection, {
+    block = /*#__PURE__*/React.createElement(Row, {
+      className: "header-mapper__row"
+    }, /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(HeaderMapperSelection, {
       options: options,
       header: header,
       examples: examples,
@@ -416,40 +334,19 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
           name: header
         }));
       }
-    })), /*#__PURE__*/React.createElement(Col, null, /*#__PURE__*/React.createElement(Padded, {
-      padding: "20px 0 0 20px",
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        height: "90%",
-        justifyContent: "space-between"
-      }
-    }, /*#__PURE__*/React.createElement("div", null, headerMapping.selectedField && /*#__PURE__*/React.createElement(MappingStatistics, {
+    })), /*#__PURE__*/React.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React.createElement(MappingStatistics, {
       selectedField: headerMapping.selectedField,
       fieldStatistics: fieldStatistics
-    })), /*#__PURE__*/React.createElement("div", null, headerMapping.selectedField && /*#__PURE__*/React.createElement(Button, {
-      style: {
-        marginRight: '10px'
-      },
+    }), headerMapping.selectedField && /*#__PURE__*/React.createElement(Button, {
       variant: "success",
       onClick: function onClick() {
         setHeaderMapping(_extends({}, headerMapping, {
           confirmed: true
         }));
       }
-    }, "Confirm mapping"), /*#__PURE__*/React.createElement(Button, {
-      variant: "secondary",
-      outline: true,
-      onClick: function onClick() {
-        setHeaderMapping(_extends({}, headerMapping, {
-          ignored: true
-        }));
-      }
-    }, "Ignore this column")))));
+    }, "Confirm mapping")));
   }
-  return /*#__PURE__*/React.createElement(Margin, {
-    margin: "20px 0"
-  }, /*#__PURE__*/React.createElement(Card, null, block));
+  return /*#__PURE__*/React.createElement(Card, null, block);
 };
 
 var HeaderMapper = function HeaderMapper(_ref) {
@@ -469,7 +366,9 @@ var HeaderMapper = function HeaderMapper(_ref) {
     };
   });
   var hasMissingRequiredFields = missingRequiredFields.length > 0;
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", null, parsed.data.length - 1, " Rows Imported")), data[0].map(function (header, columnIndex) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "header-mapper"
+  }, /*#__PURE__*/React.createElement("p", null, "Match the columns from the CSV file to the corresponding fields. If any fields are missing, you can create them in the Fields section."), data[0].map(function (header, columnIndex) {
     var _headerMapping$select;
     var examples = data.slice(1, 4).map(function (d) {
       return d[columnIndex];
