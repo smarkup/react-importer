@@ -6,7 +6,6 @@ var Papa = _interopDefault(require('papaparse'));
 var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 var reactDropzone = require('react-dropzone');
-var Select = _interopDefault(require('react-select'));
 var agGridReact = require('ag-grid-react');
 require('ag-grid-community/dist/styles/ag-grid.css');
 require('ag-grid-community/dist/styles/ag-theme-alpine.css');
@@ -278,7 +277,8 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
   var header = _ref2.header,
     setHeader = _ref2.setHeader,
     selectedHeader = _ref2.selectedHeader,
-    options = _ref2.options;
+    options = _ref2.options,
+    Select = _ref2.Select;
   return /*#__PURE__*/React__default.createElement("div", {
     className: "header"
   }, /*#__PURE__*/React__default.createElement("p", null, /*#__PURE__*/React__default.createElement("span", null, header.slice(0, 30))), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("span", null, "Match to"), /*#__PURE__*/React__default.createElement("div", {
@@ -300,7 +300,8 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     examples = _ref3.examples,
     headerMapping = _ref3.headerMapping,
     setHeaderMapping = _ref3.setHeaderMapping,
-    fieldStatistics = _ref3.fieldStatistics;
+    fieldStatistics = _ref3.fieldStatistics,
+    Select = _ref3.Select;
   var block = null;
   if (headerMapping.confirmed) {
     block = /*#__PURE__*/React__default.createElement(Row, {
@@ -323,6 +324,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     block = /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Row, {
       className: "header-mapper__row"
     }, /*#__PURE__*/React__default.createElement(HeaderMapperSelection, {
+      Select: Select,
       options: options,
       header: header,
       selectedHeader: headerMapping.selectedField,
@@ -372,7 +374,8 @@ var HeaderMapper = function HeaderMapper(_ref) {
     setHeaderMappings = _ref.setHeaderMappings,
     missingRequiredFields = _ref.missingRequiredFields,
     onComplete = _ref.onComplete,
-    restart = _ref.restart;
+    restart = _ref.restart,
+    Select = _ref.Select;
   var data = parsed.data;
   var options = fields.map(function (f) {
     return {
@@ -394,6 +397,7 @@ var HeaderMapper = function HeaderMapper(_ref) {
       statistics: statistics.statisticsByFieldKey[(_headerMapping$select = headerMapping.selectedField) === null || _headerMapping$select === void 0 ? void 0 : _headerMapping$select.value]
     };
     return /*#__PURE__*/React__default.createElement(HeaderMapperRow, {
+      Select: Select,
       key: columnIndex,
       columnIndex: columnIndex,
       header: header,
@@ -1372,10 +1376,10 @@ var reducer = function reducer(state, action) {
   }
 };
 var Importer = function Importer(_ref) {
-  var _theme$colors;
   var theme = _ref.theme,
     onComplete = _ref.onComplete,
-    fields = _ref.fields;
+    fields = _ref.fields,
+    Select = _ref.Select;
   var _useReducer = React.useReducer(reducer, buildInitialState({
       fields: fields
     })),
@@ -1471,7 +1475,6 @@ var Importer = function Importer(_ref) {
     }
   };
   var finalTheme = mergeDeep({}, THEME_DEFAULT, theme);
-  console.log(theme === null || theme === void 0 ? void 0 : (_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary, finalTheme.colors.primary);
   return /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
     theme: finalTheme
   }, /*#__PURE__*/React__default.createElement(Root, null, /*#__PURE__*/React__default.createElement(Container, null, /*#__PURE__*/React__default.createElement(Header, {
@@ -1499,6 +1502,7 @@ var Importer = function Importer(_ref) {
   }), currentStep === 0 && /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(FileUploader, {
     setFile: setFile
   })), currentStep === 1 && /*#__PURE__*/React__default.createElement(HeaderMapper, {
+    Select: Select,
     statistics: statistics,
     parsed: parsed,
     fields: unselectedFields,

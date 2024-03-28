@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useReducer } from 'react';
 import Papa from 'papaparse';
 import styled, { css, keyframes, useTheme, ThemeProvider } from 'styled-components';
 import { useDropzone } from 'react-dropzone';
-import Select from 'react-select';
 import { AgGridReact, AgGridColumn } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -274,7 +273,8 @@ var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
   var header = _ref2.header,
     setHeader = _ref2.setHeader,
     selectedHeader = _ref2.selectedHeader,
-    options = _ref2.options;
+    options = _ref2.options,
+    Select = _ref2.Select;
   return /*#__PURE__*/React.createElement("div", {
     className: "header"
   }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("span", null, header.slice(0, 30))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, "Match to"), /*#__PURE__*/React.createElement("div", {
@@ -296,7 +296,8 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     examples = _ref3.examples,
     headerMapping = _ref3.headerMapping,
     setHeaderMapping = _ref3.setHeaderMapping,
-    fieldStatistics = _ref3.fieldStatistics;
+    fieldStatistics = _ref3.fieldStatistics,
+    Select = _ref3.Select;
   var block = null;
   if (headerMapping.confirmed) {
     block = /*#__PURE__*/React.createElement(Row, {
@@ -319,6 +320,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     block = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Row, {
       className: "header-mapper__row"
     }, /*#__PURE__*/React.createElement(HeaderMapperSelection, {
+      Select: Select,
       options: options,
       header: header,
       selectedHeader: headerMapping.selectedField,
@@ -368,7 +370,8 @@ var HeaderMapper = function HeaderMapper(_ref) {
     setHeaderMappings = _ref.setHeaderMappings,
     missingRequiredFields = _ref.missingRequiredFields,
     onComplete = _ref.onComplete,
-    restart = _ref.restart;
+    restart = _ref.restart,
+    Select = _ref.Select;
   var data = parsed.data;
   var options = fields.map(function (f) {
     return {
@@ -390,6 +393,7 @@ var HeaderMapper = function HeaderMapper(_ref) {
       statistics: statistics.statisticsByFieldKey[(_headerMapping$select = headerMapping.selectedField) === null || _headerMapping$select === void 0 ? void 0 : _headerMapping$select.value]
     };
     return /*#__PURE__*/React.createElement(HeaderMapperRow, {
+      Select: Select,
       key: columnIndex,
       columnIndex: columnIndex,
       header: header,
@@ -1368,10 +1372,10 @@ var reducer = function reducer(state, action) {
   }
 };
 var Importer = function Importer(_ref) {
-  var _theme$colors;
   var theme = _ref.theme,
     onComplete = _ref.onComplete,
-    fields = _ref.fields;
+    fields = _ref.fields,
+    Select = _ref.Select;
   var _useReducer = useReducer(reducer, buildInitialState({
       fields: fields
     })),
@@ -1467,7 +1471,6 @@ var Importer = function Importer(_ref) {
     }
   };
   var finalTheme = mergeDeep({}, THEME_DEFAULT, theme);
-  console.log(theme === null || theme === void 0 ? void 0 : (_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary, finalTheme.colors.primary);
   return /*#__PURE__*/React.createElement(ThemeProvider, {
     theme: finalTheme
   }, /*#__PURE__*/React.createElement(Root, null, /*#__PURE__*/React.createElement(Container, null, /*#__PURE__*/React.createElement(Header, {
@@ -1495,6 +1498,7 @@ var Importer = function Importer(_ref) {
   }), currentStep === 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(FileUploader, {
     setFile: setFile
   })), currentStep === 1 && /*#__PURE__*/React.createElement(HeaderMapper, {
+    Select: Select,
     statistics: statistics,
     parsed: parsed,
     fields: unselectedFields,
