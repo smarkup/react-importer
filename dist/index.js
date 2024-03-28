@@ -605,9 +605,13 @@ var DataEditor = function DataEditor(_ref) {
   };
   var hasErrors = Object.keys(validationResult.errorsByFieldKeyByRowIndex).length > 0;
   var theme = styled.useTheme();
-  return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Margin, {
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: "data-editor"
+  }, /*#__PURE__*/React__default.createElement(Margin, {
     margin: "20px 0"
-  }, (!hasData() || hasErrors) && /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("input", {
+  }, (!hasData() || hasErrors) && /*#__PURE__*/React__default.createElement("div", {
+    className: "show-errors"
+  }, /*#__PURE__*/React__default.createElement("input", {
     checked: onlyShowErrors,
     onChange: function onChange(e) {
       setOnlyShowErrors(e.target.checked);
@@ -626,13 +630,14 @@ var DataEditor = function DataEditor(_ref) {
       fontWeight: "bold",
       display: "flex",
       alignItems: "center"
-    }
+    },
+    className: "pass"
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "16",
     height: "16",
     fill: "currentColor",
-    "class": "bi bi-check-lg",
+    className: "bi bi-check-lg",
     viewBox: "0 0 16 16"
   }, /*#__PURE__*/React__default.createElement("path", {
     d: "M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"
@@ -670,16 +675,17 @@ var DataEditor = function DataEditor(_ref) {
       },
       field: field.key
     });
-  }))), /*#__PURE__*/React__default.createElement(Margin, {
-    margin: "20px 0"
-  }, /*#__PURE__*/React__default.createElement(Row, null, /*#__PURE__*/React__default.createElement(Col, null, onBack && /*#__PURE__*/React__default.createElement(Button, {
+  }))), /*#__PURE__*/React__default.createElement(Row, {
+    className: "buttons"
+  }, /*#__PURE__*/React__default.createElement(Col, null, onBack && /*#__PURE__*/React__default.createElement(Button, {
     onClick: onBack,
     outline: true
   }, "Back")), /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(Align, {
     right: true
   }, hasData() && /*#__PURE__*/React__default.createElement(Button, {
-    onClick: onSubmit
-  }, validationResult.hasErrors() && "Upload Rows Without Errors", !validationResult.hasErrors() && "Upload"))))));
+    onClick: onSubmit,
+    className: validationResult.hasErrors() ? 'error' : 'success'
+  }, validationResult.hasErrors() && "Upload Rows Without Errors", !validationResult.hasErrors() && "Upload")))));
 };
 
 var Failed = function Failed() {

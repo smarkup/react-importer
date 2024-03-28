@@ -65,10 +65,10 @@ const DataEditor = ({ formattedData, fields, onSubmit, onBack, validationResult,
   const hasErrors = Object.keys(validationResult.errorsByFieldKeyByRowIndex).length > 0
   const theme = useTheme();
   return (
-    <div>
+    <div className="data-editor">
       <Margin margin="20px 0">
         {(!hasData() || hasErrors) && (
-          <div>
+          <div className="show-errors">
             <input checked={onlyShowErrors} onChange={(e) => {
               setOnlyShowErrors(e.target.checked);
             }} type="checkbox" name="row-errors" id="row-errors" />
@@ -76,8 +76,8 @@ const DataEditor = ({ formattedData, fields, onSubmit, onBack, validationResult,
           </div>
         )}
         {hasData() && !hasErrors && (
-          <div style={{color: theme.colors.success, fontWeight: "bold", display: "flex", alignItems: "center"}}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+          <div style={{color: theme.colors.success, fontWeight: "bold", display: "flex", alignItems: "center"}} className="pass">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg" viewBox="0 0 16 16">
               <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
             </svg>
 
@@ -119,27 +119,25 @@ const DataEditor = ({ formattedData, fields, onSubmit, onBack, validationResult,
           })}
         </AgGridReact>
       </div>
-      <Margin margin="20px 0">
-        <Row>
-          <Col>
-            {onBack && (
-              <Button onClick={onBack} outline>
-                Back
+      <Row className="buttons">
+        <Col>
+          {onBack && (
+            <Button onClick={onBack} outline>
+              Back
+            </Button>
+          )}
+        </Col>
+        <Col>
+          <Align right>
+            {hasData() && (
+              <Button onClick={onSubmit} className={validationResult.hasErrors() ? 'error' : 'success'}>
+                {validationResult.hasErrors() && "Upload Rows Without Errors"}
+                {!validationResult.hasErrors() && "Upload"}
               </Button>
             )}
-          </Col>
-          <Col>
-            <Align right>
-              {hasData() && (
-                <Button onClick={onSubmit}>
-                  {validationResult.hasErrors() && "Upload Rows Without Errors"}
-                  {!validationResult.hasErrors() && "Upload"}
-                </Button>
-              )}
-            </Align>
-          </Col>
-        </Row>
-      </Margin>
+          </Align>
+        </Col>
+      </Row>
     </div>
   );
 };
