@@ -238,28 +238,36 @@ var MappingStatistics = function MappingStatistics(_ref) {
     className: "statistics"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    className: "bi bi-info-circle-fill info",
-    viewBox: "0 0 16 16"
+    width: "25",
+    height: "24",
+    viewBox: "0 0 25 24",
+    fill: "none",
+    className: "info"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19ZM12.5 20C16.9183 20 20.5 16.4183 20.5 12C20.5 7.58172 16.9183 4 12.5 4C8.08172 4 4.5 7.58172 4.5 12C4.5 16.4183 8.08172 20 12.5 20ZM13.1886 7.5C13.7581 7.5 14.0429 7.8876 14.0429 8.33173C14.0429 8.88635 13.5482 9.39933 12.9043 9.39933C12.365 9.39933 12.0505 9.08058 12.0654 8.55358C12.0654 8.1103 12.4398 7.5 13.1886 7.5ZM11.4363 16C10.9867 16 10.6573 15.7229 10.9718 14.5023L11.4878 12.3382C11.5774 11.9923 11.5923 11.8533 11.4878 11.8533C11.353 11.8533 10.7699 12.0921 10.4244 12.328L10.2 11.954C11.2931 11.025 12.5507 10.4805 13.0904 10.4805C13.5397 10.4805 13.6145 11.0216 13.3901 11.8533L12.7989 14.1279C12.6943 14.5295 12.739 14.6681 12.8439 14.6681C12.9787 14.6681 13.4207 14.5015 13.855 14.1551L14.11 14.501C13.0467 15.5835 11.8851 16 11.4363 16Z"
   })), /*#__PURE__*/React.createElement("span", null, percentage(total - counts.isNull, total), "% of your rows have a value for this column")), errorTypeCounts.total === 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    className: "bi bi-check-lg success",
-    viewBox: "0 0 16 16"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    className: "success"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"
+    d: "M10.1313 13.9783L16.3939 7.71574C16.7844 7.32522 17.4176 7.32522 17.8081 7.71574C18.1986 8.10627 18.1986 8.73943 17.8081 9.12996L10.6868 16.2513C10.5827 16.3554 10.4613 16.4318 10.3318 16.4804C9.86509 16.7043 9.2974 16.534 9.03427 16.0782L6.91295 12.404C6.63681 11.9257 6.80068 11.3141 7.27898 11.038C7.75727 10.7618 8.36886 10.9257 8.645 11.404L10.1313 13.9783Z"
   })), "All rows pass validation for this column."), errorTypeCounts.total > 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    className: "bi bi-exclamation-diamond-fill error",
-    viewBox: "0 0 16 16"
+    width: "25",
+    height: "24",
+    viewBox: "0 0 25 24",
+    fill: "none",
+    className: "error"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19ZM12.5 20C16.9183 20 20.5 16.4183 20.5 12C20.5 7.58172 16.9183 4 12.5 4C8.08172 4 4.5 7.58172 4.5 12C4.5 16.4183 8.08172 20 12.5 20Z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13.3963 7H11.5L11.75 13H13.25L13.3963 7ZM12.5001 16.5C13.0455 16.5 13.5185 16.044 13.5228 15.4773C13.5185 14.919 13.0455 14.4631 12.5001 14.4631C11.9376 14.4631 11.4731 14.919 11.4773 15.4773C11.4731 16.044 11.9376 16.5 12.5001 16.5Z"
   })), errorTypeCounts.total / total < 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, errorTypeCounts.total), " rows fail validation. You can repair it on next step."), errorTypeCounts.total / total >= 0.02 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, percentage(errorTypeCounts.total, total), "%"), " of rows fail validation. You can repair it on next step.")));
 };
 var HeaderMapperSelection = function HeaderMapperSelection(_ref2) {
@@ -295,12 +303,11 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
       className: "header-mapper__row confirmed"
     }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("span", null, header.slice(0, 30))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      width: "16",
-      height: "16",
-      className: "bi bi-check-lg",
-      viewBox: "0 0 16 16"
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24"
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"
+      d: "M10.1313 13.9783L16.3939 7.71574C16.7844 7.32522 17.4176 7.32522 17.8081 7.71574C18.1986 8.10627 18.1986 8.73943 17.8081 9.12996L10.6868 16.2513C10.5827 16.3554 10.4613 16.4318 10.3318 16.4804C9.86509 16.7043 9.2974 16.534 9.03427 16.0782L6.91295 12.404C6.63681 11.9257 6.80068 11.3141 7.27898 11.038C7.75727 10.7618 8.36886 10.9257 8.645 11.404L10.1313 13.9783Z"
     })), /*#__PURE__*/React.createElement("span", null, "Matched to ", /*#__PURE__*/React.createElement("strong", null, headerMapping.selectedField.label)), /*#__PURE__*/React.createElement(Button, {
       onClick: function onClick() {
         setHeaderMapping(_extends({}, headerMapping, {
@@ -410,17 +417,16 @@ var HeaderMapper = function HeaderMapper(_ref) {
       danger: true,
       bold: true
     }, "Missing mapping for ", f.label, /*#__PURE__*/React.createElement("svg", {
-      style: {
-        marginLeft: "10px"
-      },
       xmlns: "http://www.w3.org/2000/svg",
-      width: "16",
-      height: "16",
-      fill: "#e74c3c",
-      className: "bi bi-exclamation-circle-fill",
-      viewBox: "0 0 16 16"
+      width: "25",
+      height: "24",
+      viewBox: "0 0 25 24"
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+      fillRule: "evenodd",
+      clipRule: "evenodd",
+      d: "M12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19ZM12.5 20C16.9183 20 20.5 16.4183 20.5 12C20.5 7.58172 16.9183 4 12.5 4C8.08172 4 4.5 7.58172 4.5 12C4.5 16.4183 8.08172 20 12.5 20Z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M13.3963 7H11.5L11.75 13H13.25L13.3963 7ZM12.5 16.5C13.0455 16.5 13.5185 16.044 13.5227 15.4773C13.5185 14.919 13.0455 14.4631 12.5 14.4631C11.9375 14.4631 11.473 14.919 11.4773 15.4773C11.473 16.044 11.9375 16.5 12.5 16.5Z"
     }))));
   })), /*#__PURE__*/React.createElement(Row, {
     className: "buttons"
@@ -629,13 +635,11 @@ var DataEditor = function DataEditor(_ref) {
     className: "pass"
   }, /*#__PURE__*/React.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    width: "16",
-    height: "16",
-    fill: "currentColor",
-    className: "bi bi-check-lg",
-    viewBox: "0 0 16 16"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"
+    d: "M10.1313 13.9783L16.3939 7.71574C16.7844 7.32522 17.4176 7.32522 17.8081 7.71574C18.1986 8.10627 18.1986 8.73943 17.8081 9.12996L10.6868 16.2513C10.5827 16.3554 10.4613 16.4318 10.3318 16.4804C9.86509 16.7043 9.2974 16.534 9.03427 16.0782L6.91295 12.404C6.63681 11.9257 6.80068 11.3141 7.27898 11.038C7.75727 10.7618 8.36886 10.9257 8.645 11.404L10.1313 13.9783Z"
   })), "All rows pass validation!")), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 500,

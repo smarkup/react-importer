@@ -51,8 +51,9 @@ const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMap
                 <div>
                   <TextStyled style={{ marginBottom: "15px" }} danger bold>
                     Missing mapping for {f.label}
-                    <svg style={{marginLeft: "10px"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e74c3c" className="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19ZM12.5 20C16.9183 20 20.5 16.4183 20.5 12C20.5 7.58172 16.9183 4 12.5 4C8.08172 4 4.5 7.58172 4.5 12C4.5 16.4183 8.08172 20 12.5 20Z" />
+                      <path d="M13.3963 7H11.5L11.75 13H13.25L13.3963 7ZM12.5 16.5C13.0455 16.5 13.5185 16.044 13.5227 15.4773C13.5185 14.919 13.0455 14.4631 12.5 14.4631C11.9375 14.4631 11.473 14.919 11.4773 15.4773C11.473 16.044 11.9375 16.5 12.5 16.5Z" />
                     </svg>
                   </TextStyled>
                 </div>

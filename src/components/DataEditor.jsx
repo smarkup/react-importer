@@ -77,8 +77,8 @@ const DataEditor = ({ formattedData, fields, onSubmit, onBack, validationResult,
         )}
         {hasData() && !hasErrors && (
           <div style={{color: theme.colors.success, fontWeight: "bold", display: "flex", alignItems: "center"}} className="pass">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg" viewBox="0 0 16 16">
-              <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M10.1313 13.9783L16.3939 7.71574C16.7844 7.32522 17.4176 7.32522 17.8081 7.71574C18.1986 8.10627 18.1986 8.73943 17.8081 9.12996L10.6868 16.2513C10.5827 16.3554 10.4613 16.4318 10.3318 16.4804C9.86509 16.7043 9.2974 16.534 9.03427 16.0782L6.91295 12.404C6.63681 11.9257 6.80068 11.3141 7.27898 11.038C7.75727 10.7618 8.36886 10.9257 8.645 11.404L10.1313 13.9783Z" />
             </svg>
 
             All rows pass validation!
