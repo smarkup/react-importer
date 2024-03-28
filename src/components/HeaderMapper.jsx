@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderMapperRow from './HeaderMapperRow';
 import { Button, Align, Margin, TextStyled, Col, Row } from './common'
 
-const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMappings, missingRequiredFields, onComplete, restart }) => {
+const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMappings, missingRequiredFields, onComplete, restart, Select }) => {
   const data = parsed.data;
   const options = fields.map(f => {
     return {
@@ -27,6 +27,7 @@ const HeaderMapper = ({ parsed, fields, statistics, headerMappings, setHeaderMap
             statistics: statistics.statisticsByFieldKey[headerMapping.selectedField?.value],
           }
           return <HeaderMapperRow
+            Select={Select}
             key={columnIndex}
             columnIndex={columnIndex}
             header={header}

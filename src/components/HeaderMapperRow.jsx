@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import { Card, Margin, Button, Row, Col, Padded, Table } from './common'
 
 const percentage = (a, b) => {
@@ -47,7 +46,7 @@ const MappingStatistics = ({ fieldStatistics, selectedField, }) => {
     </div>
   );
 }
-const HeaderMapperSelection = ({header, setHeader, selectedHeader, options}) => {
+const HeaderMapperSelection = ({header, setHeader, selectedHeader, options, Select}) => {
   return (
     <div className="header">
       <p><span>{header.slice(0, 30)}</span></p>
@@ -62,7 +61,7 @@ const HeaderMapperSelection = ({header, setHeader, selectedHeader, options}) => 
   );
 }
 
-const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMapping, fieldStatistics}) => {
+const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMapping, fieldStatistics, Select}) => {
   let block = null;
   if (headerMapping.confirmed) {
     block = (
@@ -91,6 +90,7 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
       <div>
         <Row className="header-mapper__row">
           <HeaderMapperSelection
+            Select={Select}
             options={options}
             header={header}
             selectedHeader={headerMapping.selectedField}

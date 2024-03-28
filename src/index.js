@@ -138,7 +138,7 @@ const reducer = (state, action) => {
   }
 }
 
-const Importer = ({ theme, onComplete, fields }) => {
+const Importer = ({ theme, onComplete, fields, Select }) => {
   const [
     {
       currentStep,
@@ -220,7 +220,7 @@ const Importer = ({ theme, onComplete, fields }) => {
   }
 
   const finalTheme = mergeDeep({}, THEME_DEFAULT, theme)
-  console.log(theme?.colors?.primary, finalTheme.colors.primary)
+
   return (
     <ThemeProvider theme={finalTheme}>
       <Root>
@@ -245,6 +245,7 @@ const Importer = ({ theme, onComplete, fields }) => {
           )}
           {currentStep === 1 && (
             <HeaderMapper
+              Select={Select}
               statistics={statistics}
               parsed={parsed}
               fields={unselectedFields}
