@@ -432,7 +432,7 @@ var HeaderMapper = function HeaderMapper(_ref) {
     right: true
   }, /*#__PURE__*/React.createElement(Button, {
     onClick: onComplete,
-    variant: hasMissingRequiredFields ? "danger" : "primary"
+    className: hasMissingRequiredFields ? 'error' : 'success'
   }, hasMissingRequiredFields && "Proceed Anyways", !hasMissingRequiredFields && "Review"))))));
 };
 
