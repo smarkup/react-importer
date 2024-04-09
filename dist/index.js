@@ -338,6 +338,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
     })), /*#__PURE__*/React__default.createElement(Row, {
       className: "header-mapper__body"
     }, /*#__PURE__*/React__default.createElement(Col, null, /*#__PURE__*/React__default.createElement(Table, null, /*#__PURE__*/React__default.createElement("tbody", null, examples.map(function (e, idx) {
+      e = "" + (e || '');
       return /*#__PURE__*/React__default.createElement("tr", {
         key: idx
       }, /*#__PURE__*/React__default.createElement("td", {
@@ -350,7 +351,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
         style: {
           padding: '10px 20px'
         }
-      }, ("" + (e || '')).slice(0, 100) || /*#__PURE__*/React__default.createElement("i", null, "No Data")));
+      }, e.slice(0, 100) + (e.length > 100 ? '…' : '') || /*#__PURE__*/React__default.createElement("i", null, "No Data")));
     })))), /*#__PURE__*/React__default.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React__default.createElement(MappingStatistics, {
       selectedField: headerMapping.selectedField,
       fieldStatistics: fieldStatistics

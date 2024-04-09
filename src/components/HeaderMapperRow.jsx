@@ -109,13 +109,14 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
             <Table>
               <tbody>
               {examples.map((e, idx) => {
+                e = `${e || ''}`
                 return (
                   <tr key={idx}>
                     <td style={{ backgroundColor: '#ecf0f1', textAlign: 'center', width: "40px" }}>
                       {idx}
                     </td>
                     <td style={{ padding: '10px 20px' }}>
-                      {`${e || ''}`.slice(0, 100) || <i>No Data</i>}
+                      {e.slice(0, 100) + (e.length > 100 ? '…' : '') || <i>No Data</i>}
                     </td>
                   </tr>
                 );
