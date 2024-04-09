@@ -115,7 +115,7 @@ const HeaderMapperRow = ({options, header, examples, headerMapping, setHeaderMap
                       {idx}
                     </td>
                     <td style={{ padding: '10px 20px' }}>
-                      {e || <i>No Data</i>}
+                      {`${e || ''}`.slice(0, 100) || <i>No Data</i>}
                     </td>
                   </tr>
                 );

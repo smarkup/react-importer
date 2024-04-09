@@ -346,7 +346,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
         style: {
           padding: '10px 20px'
         }
-      }, e || /*#__PURE__*/React.createElement("i", null, "No Data")));
+      }, ("" + (e || '')).slice(0, 100) || /*#__PURE__*/React.createElement("i", null, "No Data")));
     })))), /*#__PURE__*/React.createElement(Col, null, headerMapping.selectedField && /*#__PURE__*/React.createElement(MappingStatistics, {
       selectedField: headerMapping.selectedField,
       fieldStatistics: fieldStatistics
