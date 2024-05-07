@@ -345,7 +345,7 @@ var HeaderMapperRow = function HeaderMapperRow(_ref3) {
         style: {
           backgroundColor: '#ecf0f1',
           textAlign: 'center',
-          width: "40px"
+          width: '40px'
         }
       }, idx), /*#__PURE__*/React__default.createElement("td", {
         style: {
@@ -421,7 +421,7 @@ var HeaderMapper = function HeaderMapper(_ref) {
   }, hasMissingRequiredFields && missingRequiredFields.map(function (f) {
     return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(TextStyled, {
       style: {
-        marginBottom: "15px"
+        marginBottom: '15px'
       },
       danger: true,
       bold: true
@@ -447,7 +447,7 @@ var HeaderMapper = function HeaderMapper(_ref) {
   }, /*#__PURE__*/React__default.createElement(Button, {
     onClick: onComplete,
     className: hasMissingRequiredFields ? 'error' : 'success'
-  }, hasMissingRequiredFields && "Proceed Anyways", !hasMissingRequiredFields && "Review"))))));
+  }, hasMissingRequiredFields && 'Proceed Anyways', !hasMissingRequiredFields && 'Review'))))));
 };
 
 var isUndefinedOrNull = function isUndefinedOrNull(a) {
@@ -1456,7 +1456,7 @@ var Importer = function Importer(_ref) {
         type: 'PENDING'
       });
       var _temp4 = _catch(function () {
-        return Promise.resolve(onComplete(buildFinalData(formattedData, validationResult), function (progress) {
+        return Promise.resolve(onComplete(buildFinalData(formattedData, validationResult), validationResult, function (progress) {
           dispatch({
             type: 'PROGRESS',
             payload: {

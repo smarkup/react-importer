@@ -22,6 +22,7 @@ import {
 import { applyTransformations } from './transformers'
 import { delay } from './utils/timing'
 import { THEME_DEFAULT } from './themes'
+
 export * from './themes'
 
 function buildInitialState(inject) {
@@ -205,6 +206,7 @@ const Importer = ({ theme, onComplete, fields, Select }) => {
     try {
       await onComplete(
         buildFinalData(formattedData, validationResult),
+        validationResult,
         (progress) => {
           dispatch({ type: 'PROGRESS', payload: { progress: progress } })
         }
